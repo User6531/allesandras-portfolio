@@ -11,8 +11,7 @@ import Service from './services/Services';
 
 const service = new Service();
 
-service.getAllProjects()
-  .then(res=>console.log(res))''
+
 
 ReactDOM.render(
   <>
