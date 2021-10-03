@@ -41,6 +41,7 @@ export default createGlobalStyle`
         -moz-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
         font-family: 'Lato-Regular';
+        background-color: var(--background-main);
     }
     input,
     button,
