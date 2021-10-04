@@ -40,19 +40,12 @@ const S = {
         width: 100%;
         margin: 50px 0;
         transition: ease .2s all;
-        /* :hover {
-            opacity: .3;
-        } */
-        z-index: 1;
-        :before {
-            content: '';
-            width: 100%;
-            height: 100%;
-            background-color: red;
+        a {
+            transition: ease .2s all;
+            :hover {
+                opacity: 1 !important;
+            }
         }
-    `,
-    NavSocialLink: styled.a`
-
     `,
     Logo: styled.h1`
         margin: 50px 0;

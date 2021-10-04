@@ -6,6 +6,7 @@ import {ProjectsListPage} from '../pages/ProjectsListPage/';
 import {AboutPage} from '../pages/AboutPage/';
 import {ContactsPage} from '../pages/ContactsPage/';
 import {ProjectPage} from '../pages/ProjectPage/';
+import { ServicesPage } from '../pages/ServicesPage/';
 
 import S from "./styled"
 
@@ -28,7 +29,7 @@ export const Main: React.FC = () => {
     .then((res: ArrayProps[]) => setDbProject(res))
     .catch(()=>setError(true));
   }, []);
-
+  
   return (
     <S.Wrapper>
       <Switch>
@@ -36,6 +37,7 @@ export const Main: React.FC = () => {
             return <ProjectsListPage error={error} dbProjects={dbProjects}/>
           }} />
           <Route exact path="/about" component={AboutPage} />
+          <Route exact path="/services" component={ServicesPage} />
           <Route exact path="/contacts" component={ContactsPage} />
           <Route exact path="/:id"render={({match})=>{
             const {id} = match.params;

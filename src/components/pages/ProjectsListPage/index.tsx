@@ -27,8 +27,7 @@ export const ProjectsListPage: React.FC<Props> = ({error, dbProjects}) => {
         {dbProjects.map(project=> {
           const {id} = project;
           return (
-            <ProjectsListItem project={project}
-                              key={id}/>
+            <ProjectsListItem project={project} key={id}/>
           )
         })}
       </S.Wrapper>
