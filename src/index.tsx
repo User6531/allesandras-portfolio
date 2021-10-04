@@ -11,8 +11,6 @@ import Service from './services/Services';
 
 const service = new Service();
 
-
-
 ReactDOM.render(
   <>
     <GlobalFonts />

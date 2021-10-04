@@ -1,35 +1,64 @@
 import styled from 'styled-components';
-// import { fontSize } from '../../global/fonts/GlobalFonts';
+import { fontSize } from '../../global/fonts/GlobalFonts';
 
 const S = {
-    Wrapper: styled.div`
+    WrapperMain: styled.div`
         height: 100%;
-        width: 250px;
+        width: 230px;
         position: fixed;
         z-index: 1;
         top: 0;
         left: 0;
         overflow-x: hidden;
-        padding: 20px;
+        text-transform: uppercase;
+    `,
+    Wrapper: styled.div`
+        height: 100%;
+        width: 150px;
+        margin: 0 auto;
+        overflow: hidden;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
         align-content: space-between;
+
     `,
     NavigationMenu: styled.nav`
         display: flex;
         flex-wrap: wrap;
-        a {
-            width: 100%;
-            color: inherit;
-        }
     `,
+    NavMenuLink: styled.nav`
+       width: 100%;
+       font-size: ${fontSize.small};
+       a {
+           color: var(--black);
+       }
+   `,
     NavigationSocial: styled.nav`
         display: flex;
         justify-content: space-between;
         width: 100%;
+        margin: 50px 0;
+        transition: ease .2s all;
+        /* :hover {
+            opacity: .3;
+        } */
+        z-index: 1;
+        :before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            background-color: red;
+        }
+    `,
+    NavSocialLink: styled.a`
+
+    `,
+    Logo: styled.h1`
+        margin: 50px 0;
+        font-size: 50px;
         a {
-            color: inherit;
+            color: var(--black);
         }
     `,
 };

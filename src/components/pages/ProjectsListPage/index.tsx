@@ -1,20 +1,37 @@
-import { useContext } from "react";
-
-import { Context } from "../../../Context";
+import {Error} from '../../Error';
+import { Loader } from '../../Loader';
+import { ProjectsListItem } from '../../ProjectsListItem';
 import S from "./styled"
 
+interface ArrayProps {
+  id: string;
+  projectName: string;
+  description: string;
+  thumbnail: string;
+  img: string[];
+}
+interface Props {
+  error: boolean,
+  dbProjects: ArrayProps[];
+}
 
+export const ProjectsListPage: React.FC<Props> = ({error, dbProjects}) => {
 
-export const ProjectsListPage: React.FC = () => {
-
-  const {service} = useContext(Context);
-
-  service.getAllProjects()
-    .then(res=>console.log(res))
-
-  return (
-    <S.Wrapper>
-      <p>ProjectsListPage</p>
-    </S.Wrapper>
-  );
+  if (error) {
+    return <Error />
+  } else if (!dbProjects.length) {
+    return <Loader />
+  } else {
+    return (
+      <S.Wrapper>
+        {dbProjects.map(project=> {
+          const {id} = project;
+          return (
+            <ProjectsListItem project={project}
+                              key={id}/>
+          )
+        })}
+      </S.Wrapper>
+    )
+  }
 }
