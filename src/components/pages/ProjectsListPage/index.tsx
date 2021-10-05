@@ -1,3 +1,6 @@
+import { Context } from "../../../Context";
+import { useContext } from "react";
+
 import {Error} from '../../Error';
 import { Loader } from '../../Loader';
 import { ProjectsListItem } from '../../ProjectsListItem';
@@ -11,13 +14,14 @@ interface ArrayProps {
   img: string[];
 }
 interface Props {
-  error: boolean,
   dbProjects: ArrayProps[];
 }
 
-export const ProjectsListPage: React.FC<Props> = ({error, dbProjects}) => {
+export const ProjectsListPage: React.FC<Props> = ({dbProjects}) => {
 
-  if (error) {
+  const {state} = useContext(Context);
+
+  if (state.error) {
     return <Error />
   } else if (!dbProjects.length) {
     return <Loader />

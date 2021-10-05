@@ -4,7 +4,6 @@ import { SocialIcon } from 'react-social-icons';
 
 import S from "./styled"
 
-
 const social = {
   instagram: 'https://www.instagram.com/',
   linkedin: "https://www.linkedin.com/",

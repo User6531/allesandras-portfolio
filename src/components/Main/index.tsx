@@ -7,34 +7,35 @@ import {AboutPage} from '../pages/AboutPage/';
 import {ContactsPage} from '../pages/ContactsPage/';
 import {ProjectPage} from '../pages/ProjectPage/';
 import { ServicesPage } from '../pages/ServicesPage/';
+import {error} from '../../reducer/action';
 
 import S from "./styled"
 
-interface ArrayProps {
+interface resRequest {
   id: string;
   projectName: string;
   description: string;
   thumbnail: string;
   img: string[];
+  data: []
 }
 
 export const Main: React.FC = () => {
 
-  const {service} = useContext(Context);
-  const [dbProjects, setDbProject] = useState<ArrayProps[]>([]);
-  const [error, setError] = useState(false)
+  const {service, dispatch} = useContext(Context);
+  const [dbProjects, setDbProject] = useState<resRequest[]>([]);
 
   useEffect(()=>{
     service.getAllProjects()
-    .then((res: ArrayProps[]) => setDbProject(res))
-    .catch(()=>setError(true));
+    .then((res: resRequest) => setDbProject(res.data))
+    .catch((res: string)=>dispatch(error(res)));
   }, []);
   
   return (
     <S.Wrapper>
       <Switch>
           <Route exact path="/" render={()=>{
-            return <ProjectsListPage error={error} dbProjects={dbProjects}/>
+            return <ProjectsListPage dbProjects={dbProjects}/>
           }} />
           <Route exact path="/about" component={AboutPage} />
           <Route exact path="/services" component={ServicesPage} />
