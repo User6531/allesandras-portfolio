@@ -40,11 +40,14 @@ const S = {
         width: 100%;
         margin: 50px 0;
         transition: ease .2s all;
+        :hover a {
+            opacity: .5;
+        }
         a {
             transition: ease .2s all;
             :hover {
-                opacity: 1 !important;
-            }
+                opacity: 1;
+            }   
         }
     `,
     Logo: styled.h1`
