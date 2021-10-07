@@ -4,23 +4,17 @@ import { useContext } from "react";
 import {Error} from '../../Error';
 import { Loader } from '../../Loader';
 import { ProjectsListItem } from '../../ProjectsListItem';
+import { resRequest } from "../../../global/interface";
 import S from "./styled"
 
-interface ArrayProps {
-  id: string;
-  projectName: string;
-  description: string;
-  thumbnail: string;
-  img: string[];
-}
 interface Props {
-  dbProjects: ArrayProps[];
+  dbProjects: resRequest[];
 }
 
 export const ProjectsListPage: React.FC<Props> = ({dbProjects}) => {
 
   const {state} = useContext(Context);
-
+console.log(dbProjects);
   if (state.error) {
     return <Error />
   } else if (!dbProjects.length) {

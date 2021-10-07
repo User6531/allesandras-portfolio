@@ -8,17 +8,9 @@ import {ContactsPage} from '../pages/ContactsPage/';
 import {ProjectPage} from '../pages/ProjectPage/';
 import { ServicesPage } from '../pages/ServicesPage/';
 import {error} from '../../reducer/action';
+import { resRequest } from "../../global/interface";
 
 import S from "./styled"
-
-interface resRequest {
-  id: string;
-  projectName: string;
-  description: string;
-  thumbnail: string;
-  img: string[];
-  data: []
-}
 
 export const Main: React.FC = () => {
 

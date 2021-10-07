@@ -3,7 +3,7 @@ import axios from 'axios';
 export default class Service {
 
     _apiDataBaseProjects = 'https://raw.githubusercontent.com/User6531/db-allesandras-portfolio/main/db.json';
-
+    
     api = axios.create({
         baseURL: this._apiDataBaseProjects
     })

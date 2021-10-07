@@ -1,8 +1,9 @@
-import {LOADING, ERROR} from './actionTypes';
+import {LOADING, ERROR, SET_LANGUAGE, SET_THEME} from './actionTypes';
 
 type Action =
 | { type: string , payload: boolean}
 | { type: string , payload: {error: boolean, errorMessage: string}}
+| { type: string , payload: string}
 
 const loading = (): Action => {
     return {
@@ -21,7 +22,23 @@ const error = (errorMessage: string): Action => {
     }
 }
 
+const setLanguage = (language: string): Action => {
+    return {
+        type: SET_LANGUAGE,
+        payload: language
+    }
+}
+
+const setTheme = (theme: string): Action => {
+    return {
+        type: SET_THEME,
+        payload: theme
+    }
+}
+
 export {
     loading,
-    error
+    error,
+    setLanguage,
+    setTheme
 }

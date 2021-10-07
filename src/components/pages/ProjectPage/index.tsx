@@ -1,19 +1,17 @@
+import { useContext } from "react";
+
+import { resRequest } from "../../../global/interface";
+import { Context } from "../../../Context";
 import S from "./styled"
 
-interface ArrayProps {
-  id: string;
-  projectName: string;
-  description: string;
-  thumbnail: string;
-  img: string[];
-}
 interface Props {
-  dbProjects: ArrayProps[];
+  dbProjects: resRequest[];
   id: string;
 }
 
 export const ProjectPage: React.FC<Props> = ({dbProjects, id}) => {
 
+  const {state} = useContext(Context);
 
   return (
     <S.Wrapper>
@@ -24,7 +22,7 @@ export const ProjectPage: React.FC<Props> = ({dbProjects, id}) => {
             <>
               <S.DescriptionWrapper>
                 <S.Name>{projectName}</S.Name>
-                <S.Description>{description}</S.Description>
+                <S.Description>{description[state.language]}</S.Description>
               </S.DescriptionWrapper>
               <S.ImgWrapper>
                 {img.map(item=>{

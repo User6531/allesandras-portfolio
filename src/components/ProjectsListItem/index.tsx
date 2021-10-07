@@ -1,15 +1,9 @@
 import { Link } from "react-router-dom";
+import { resRequest } from "../../global/interface";
 import S from "./styled"
 
-interface ObjectProps {
-  projectName: string;
-  description: string;
-  thumbnail: string;
-  img: string[];
-  id: string;
-}
 interface Props {
-  project: ObjectProps;
+  project: resRequest;
 }
 
 export const ProjectsListItem: React.FC<Props> = ({project}) => {

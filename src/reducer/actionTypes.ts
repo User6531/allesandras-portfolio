@@ -1,7 +1,11 @@
 const LOADING = 'LOADING';
 const ERROR = 'ERROR';
+const SET_LANGUAGE = 'SET_LANGUAGE';
+const SET_THEME = 'SET_THEME';
 
 export {
     LOADING,
-    ERROR
+    ERROR,
+    SET_LANGUAGE,
+    SET_THEME
 }
