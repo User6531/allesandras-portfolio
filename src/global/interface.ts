@@ -3,7 +3,9 @@ export interface resRequest {
     projectName: string;
     description: any;
     thumbnail: string;
-    img: string[];
+    img: [
+      {thumbnail: string; original: string;}
+    ];
     data: []
   }
   

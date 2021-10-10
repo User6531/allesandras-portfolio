@@ -1,8 +1,11 @@
 import { useContext } from "react";
+import ImageGallery from 'react-image-gallery';
 
 import { resRequest } from "../../../global/interface";
 import { Context } from "../../../Context";
-import S from "./styled"
+
+import "./ImageGalleryStyle.css";
+import S from "./styled";
 
 interface Props {
   dbProjects: resRequest[];
@@ -19,17 +22,13 @@ export const ProjectPage: React.FC<Props> = ({dbProjects, id}) => {
         if(item.id === id) {
           const {projectName, description, img} = item;
           return (
-            <>
+            <div key={id}>
               <S.DescriptionWrapper>
                 <S.Name>{projectName}</S.Name>
                 <S.Description>{description[state.language]}</S.Description>
               </S.DescriptionWrapper>
-              <S.ImgWrapper>
-                {img.map(item=>{
-                  return <S.Img src={item} />
-                })}
-              </S.ImgWrapper>
-            </>
+              <ImageGallery items={img} showPlayButton={false}/>
+            </div>
           )
         }
       })}

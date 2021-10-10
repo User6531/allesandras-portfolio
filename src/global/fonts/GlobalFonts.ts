@@ -20,8 +20,9 @@ export default createGlobalStyle`
 `;
 
 const fontSize = {
-    big: '26px',
-    middle: '22px',
+    XXlarge: '36px',
+    large: '26px',
+    medium: '22px',
     small: '18px',
 }
 

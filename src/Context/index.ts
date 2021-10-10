@@ -3,7 +3,8 @@ import { initialState } from "../reducer/initialState";
 
 interface IContextProps {
     state: typeof  initialState;
-    dispatch: ({type}:{type:string}) => void;
+    dispatch: any;
+    service: any;
   }
 
 export const Context = React.createContext({} as IContextProps);

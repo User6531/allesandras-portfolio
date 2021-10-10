@@ -36,7 +36,7 @@ export default createGlobalStyle`
         width: 100%;
         font-size: 100%;
         line-height: 1.5;
-        font-size: ${fontSize.middle};
+        font-size: ${fontSize.medium};
         -ms-text-size-adjust: 100%;
         -moz-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;

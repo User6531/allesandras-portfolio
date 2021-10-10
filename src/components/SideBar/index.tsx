@@ -29,9 +29,9 @@ export const SideBar: React.FC = () => {
         <S.NavigationMenu>
           <S.Logo><Link to={`/`}>Logo</Link></S.Logo>
           <S.NavMenuLink><Link to={`/`}>{Translate[language].Projects}</Link></S.NavMenuLink>
-          <S.NavMenuLink><Link to={`/about`}>about</Link></S.NavMenuLink>
-          <S.NavMenuLink><Link to={`/services`}>services</Link></S.NavMenuLink>
-          <S.NavMenuLink><Link to={`/contacts`}>contacts</Link></S.NavMenuLink>
+          <S.NavMenuLink><Link to={`/about`}>{Translate[language].About}</Link></S.NavMenuLink>
+          <S.NavMenuLink><Link to={`/services`}>{Translate[language].Services}</Link></S.NavMenuLink>
+          <S.NavMenuLink><Link to={`/contacts`}>{Translate[language].Contacts}</Link></S.NavMenuLink>
         </S.NavigationMenu>
         <S.WrapperBottom>
           <S.WrapperButtons>

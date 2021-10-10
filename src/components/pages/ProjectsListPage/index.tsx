@@ -14,7 +14,6 @@ interface Props {
 export const ProjectsListPage: React.FC<Props> = ({dbProjects}) => {
 
   const {state} = useContext(Context);
-console.log(dbProjects);
   if (state.error) {
     return <Error />
   } else if (!dbProjects.length) {
