@@ -9,6 +9,7 @@ import {ProjectPage} from '../pages/ProjectPage/';
 import { ServicesPage } from '../pages/ServicesPage/';
 import {error} from '../../reducer/action';
 import { resRequest } from "../../global/interface";
+import { Transition } from "../Transition";
 
 import S from "./styled"
 
@@ -27,14 +28,21 @@ export const Main: React.FC = () => {
     <S.Wrapper>
       <Switch>
           <Route exact path="/" render={()=>{
-            return <ProjectsListPage dbProjects={dbProjects}/>
+            return (
+                <ProjectsListPage dbProjects={dbProjects}/>
+            )
           }} />
           <Route exact path="/about" component={AboutPage} />
           <Route exact path="/services" component={ServicesPage} />
           <Route exact path="/contacts" component={ContactsPage} />
-          <Route exact path="/:id"render={({match})=>{
+          <Route exact path="/:id" render={({match})=>{
             const {id} = match.params;
-            return <ProjectPage dbProjects={dbProjects} id={id}/>
+            return (
+              <Transition>
+                <ProjectPage dbProjects={dbProjects} id={id}/>
+              </Transition>
+            )
+            
           }} />
         </Switch>
     </S.Wrapper>

@@ -27,7 +27,9 @@ export const ProjectPage: React.FC<Props> = ({dbProjects, id}) => {
                 <S.Name>{projectName}</S.Name>
                 <S.Description>{description[state.language]}</S.Description>
               </S.DescriptionWrapper>
-              <ImageGallery items={img} showPlayButton={false}/>
+              <S.ImageGalleryWrapper>
+                <ImageGallery items={img} showPlayButton={false}/>
+              </S.ImageGalleryWrapper>
             </div>
           )
         }

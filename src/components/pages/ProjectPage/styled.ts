@@ -14,16 +14,10 @@ Name = styled.h1`
 Description = styled.p`
     font-size: ${fontSize.small};
     text-align: center;
-    
 `,
-ImgWrapper = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-`,
-Img = styled.img`
-    width: 600px;
-    margin: 5px;
-
+ImageGalleryWrapper = styled.div`
+    width: 800px;
+    height: 800px;
 `;
 
 export default {
@@ -31,6 +25,5 @@ export default {
     DescriptionWrapper,
     Name,
     Description,
-    ImgWrapper,
-    Img,
+    ImageGalleryWrapper,
 };
