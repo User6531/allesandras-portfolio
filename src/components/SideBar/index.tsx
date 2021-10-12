@@ -7,12 +7,10 @@ import Translate from "../../global/Translate";
 import {setLanguage, setTheme} from '../../reducer/action';
 import S from "./styled";
 
-
 export const SideBar: React.FC = () => {
 
   const {state, dispatch} = useContext(Context);
   const {language, theme} = state;
-
 
   const social = {
     instagram: 'https://www.instagram.com/',

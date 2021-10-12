@@ -2,6 +2,7 @@ export const initialState = {
     loading: true,
     error: false,
     errorMessage: '',
-    language: 'en',
-    theme: 'light',
+    language: (localStorage.getItem('language') || 'en'),
+    theme: (localStorage.getItem('theme') || 'light'),
+    isModalOpen: false
 }

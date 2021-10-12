@@ -2,10 +2,14 @@ const LOADING = 'LOADING';
 const ERROR = 'ERROR';
 const SET_LANGUAGE = 'SET_LANGUAGE';
 const SET_THEME = 'SET_THEME';
+const OPEN_MODAL = 'OPEN_MODAL';
+
+
 
 export {
     LOADING,
     ERROR,
     SET_LANGUAGE,
-    SET_THEME
+    SET_THEME,
+    OPEN_MODAL
 }

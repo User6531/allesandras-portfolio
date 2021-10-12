@@ -2,20 +2,15 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from "react-router-dom";
 
 import App from './components/App/';
-import {ErrorBoundary} from './components/ErrorBoundary';
-import GlobalFonts from './global/fonts/GlobalFonts';
-import GlobalColors from './global/GlobalColors';
-import GlobalStyle from './global/GlobalStyle';
+import { ErrorBoundary } from './components/ErrorBoundary';
+
 
 ReactDOM.render(
   <>
-    <GlobalFonts />
-    <GlobalColors />
-    <GlobalStyle />
     <ErrorBoundary>
-        <Router>
-          <App/>
-        </Router>
+          <Router>
+              <App/>
+          </Router>
     </ErrorBoundary>
   </>
   ,document.getElementById('root')

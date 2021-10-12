@@ -41,7 +41,10 @@ export default createGlobalStyle`
         -moz-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
         font-family: 'Lato-Regular';
-        background-color: var(--background-main);
+        transition: ease .5s background-color, color;
+
+        background-color: ${(props: any) => props.theme.backgroundColor};
+        color: ${(props: any) => props.theme.textColor};
     }
     input,
     button,
@@ -62,6 +65,7 @@ export default createGlobalStyle`
     a,
     a:visited {
         text-decoration: none;
+        color: ${(props: any) => props.theme.textColor};
     }
     a:hover {
         text-decoration: none;

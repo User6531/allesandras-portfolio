@@ -1,4 +1,5 @@
-import S from "./styled"
+import React from "react";
+import S from "./styled";
 
 export const ContactsPage: React.FC = () => {
 

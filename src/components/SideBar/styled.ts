@@ -35,9 +35,6 @@ const S = {
     NavMenuLink: styled.nav`
        width: 100%;
        font-size: ${fontSize.small};
-       a {
-           color: var(--black);
-       }
     `,
     WrapperBottom: styled.div`
        width: 100%;

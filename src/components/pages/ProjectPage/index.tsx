@@ -20,20 +20,30 @@ export const ProjectPage: React.FC<Props> = ({dbProjects, id}) => {
     <S.Wrapper>
       {dbProjects.map(item=>{
         if(item.id === id) {
-          const {projectName, description, img} = item;
+          const {projectName, description, img, drawings} = item;
           return (
             <div key={id}>
+              <S.Name>{projectName}</S.Name>
               <S.DescriptionWrapper>
-                <S.Name>{projectName}</S.Name>
+                <S.ImageGalleryWrapper>
+                  <ImageGallery items={img} showPlayButton={false}/>
+                </S.ImageGalleryWrapper>
                 <S.Description>{description[state.language]}</S.Description>
               </S.DescriptionWrapper>
-              <S.ImageGalleryWrapper>
-                <ImageGallery items={img} showPlayButton={false}/>
-              </S.ImageGalleryWrapper>
+              <S.DrawWrapper>
+                {drawings.map((elem, key)=> {
+                    return (
+                      <S.DrawImg  src={elem} 
+                                  key={key}
+                      />
+                    )
+                })}
+              </S.DrawWrapper>
             </div>
           )
         }
       })}
+      
     </S.Wrapper>
   );
 }

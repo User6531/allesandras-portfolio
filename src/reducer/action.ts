@@ -1,9 +1,5 @@
-import {LOADING, ERROR, SET_LANGUAGE, SET_THEME} from './actionTypes';
-
-type Action =
-| { type: string , payload: boolean}
-| { type: string , payload: {error: boolean, errorMessage: string}}
-| { type: string , payload: string}
+import {LOADING, ERROR, SET_LANGUAGE, SET_THEME, OPEN_MODAL} from './actionTypes';
+import { Action } from '../global/interface';
 
 const loading = (): Action => {
     return {
@@ -23,6 +19,7 @@ const error = (errorMessage: string): Action => {
 }
 
 const setLanguage = (language: string): Action => {
+    localStorage.setItem('language', language);
     return {
         type: SET_LANGUAGE,
         payload: language
@@ -30,9 +27,16 @@ const setLanguage = (language: string): Action => {
 }
 
 const setTheme = (theme: string): Action => {
+    localStorage.setItem('theme', theme);
     return {
         type: SET_THEME,
         payload: theme
+    }
+}
+
+const setOpenModal = (): Action => {
+    return {
+        type: OPEN_MODAL
     }
 }
 
@@ -40,5 +44,6 @@ export {
     loading,
     error,
     setLanguage,
-    setTheme
+    setTheme,
+    setOpenModal
 }
