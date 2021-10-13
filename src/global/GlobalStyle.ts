@@ -1,8 +1,24 @@
 import { createGlobalStyle } from 'styled-components';
-import { fontSize } from './fonts/GlobalFonts';
 
+import LatoLight from './fonts/Lato/Lato-Light.ttf';
+import LatoRegular from './fonts/Lato/Lato-Regular.ttf';
+import LatoBold from './fonts/Lato/Lato-Bold.ttf';
 
 export default createGlobalStyle`
+
+    @font-face {
+        font-family: 'Lato-Light';
+        src: url(${LatoLight}) format('truetype');
+    }
+    @font-face {
+        font-family: 'Lato-Bold';
+        src: url(${LatoBold}) format('truetype');
+    }
+    @font-face {
+        font-family: 'Lato-Regular';
+        src: url(${LatoRegular}) format('truetype');
+    }
+
     /*Zeroing*/
     * {
         padding: 0;
@@ -36,15 +52,14 @@ export default createGlobalStyle`
         width: 100%;
         font-size: 100%;
         line-height: 1.5;
-        font-size: ${fontSize.medium};
         -ms-text-size-adjust: 100%;
         -moz-text-size-adjust: 100%;
         -webkit-text-size-adjust: 100%;
-        font-family: 'Lato-Regular';
-        transition: ease .5s background-color, color;
-
-        background-color: ${(props: any) => props.theme.backgroundColor};
-        color: ${(props: any) => props.theme.textColor};
+        transition: ease .3s background-color, color;
+        color: ${(props: any) => props.theme.colors.textColor};
+        font-size: ${(props: any) => props.theme.fontSizes.medium};
+        font-family: ${(props: any) => props.theme.fonts[0]};
+        background-color: ${(props: any) => props.theme.colors.backgroundColor};
     }
     input,
     button,
@@ -65,7 +80,8 @@ export default createGlobalStyle`
     a,
     a:visited {
         text-decoration: none;
-        color: ${(props: any) => props.theme.textColor};
+        color: ${(props: any) => props.theme.colors.textColor};
+
     }
     a:hover {
         text-decoration: none;

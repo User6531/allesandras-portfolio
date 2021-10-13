@@ -24,9 +24,10 @@ export const Main: React.FC = () => {
     .then((res: resRequest) => setDbProject(res.data))
     .catch((res: string)=>dispatch(error(res)));
   }, []);
-  
+
   return (
     <S.Wrapper>
+      
       <TransitionGroup className="transition-group">
         <CSSTransition
           key={location.key}

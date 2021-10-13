@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-// import { fontSize } from '../../global/fonts/GlobalFonts';
+import { breakpoints } from '../../global/utils';
 
 const Title = styled.span`
         position: absolute;
@@ -22,8 +22,15 @@ const Title = styled.span`
         transition: ease .3s all;
 `,
     Wrapper = styled.div`
-        min-width: 300px;
         width: 33.333%;
+        ${breakpoints("width", "%", [
+            { 2560: 25 },
+            { 1440: 33.333 },
+            { 1024: 50 },
+            { 768: 50 },
+            { 620: 100 },
+            { 425: 100 }
+        ])};
         height: 300px;
         position: relative;
         overflow: hidden;

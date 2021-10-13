@@ -1,14 +1,28 @@
 import styled from 'styled-components';
-import { fontSize } from '../../../global/fonts/GlobalFonts';
+import { breakpoints } from '../../../global/utils';
 
 const Wrapper = styled.div`
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
+    margin-bottom: 100px;
+    ${breakpoints("margin-top", "px", [
+            { 2560: 100 },
+            { 1440: 100 },
+            { 1024: 100 },
+            { 768: 0 },
+    ])};
+    overflow: hidden;
+    ${breakpoints("padding", "", [
+            { 2560: '0 100px' },
+            { 1440: '0 100px' },
+            { 1024: '0 50px' },
+            { 768: '0 15px' },
+    ])};
 `,
 Name = styled.h1`
-    font-size: ${fontSize.XXlarge};
+    font-size: ${(props: any) => props.theme.fontSizes.xxLarge};
     text-align: center;
-    margin: 100px 0;
+    margin-bottom: 50px;
 `,
 DescriptionWrapper = styled.div`
     display: flex;
@@ -17,13 +31,29 @@ DescriptionWrapper = styled.div`
     flex-wrap: wrap;
 `,
 ImageGalleryWrapper = styled.div`
-    width: 800px;
-    height: 800px;
+    margin: 0 auto; 
+    ${breakpoints("width", "px", [
+            { 2560: 800 },
+            { 1440: 600 },
+            { 1024: 600 },
+            { 768: 600 },
+            { 600: 425 },
+            { 425: 380 },
+            { 375: 350 },
+            { 320: 275 },
+    ])};
 `,
 Description = styled.p`
-    font-size: ${fontSize.small};
+    font-size: ${(props: any) => props.theme.fontSizes.small};
     text-align: center;
-    max-width: 400px; 
+    margin: 0 auto;
+    margin-top: 50px;
+    ${breakpoints("max-width", "px", [
+            { 2560: 400 },
+            { 1440: 300 },
+            { 1024: 300 },
+            { 768: 300 },
+    ])};
 `,
 DrawWrapper = styled.div`
     margin: 0 auto;
@@ -31,16 +61,19 @@ DrawWrapper = styled.div`
 DrawImg = styled.img`
     display: block;
     margin: 0 auto;
-    max-width: 800px;
+    margin-top: 50px;
+    ${breakpoints("max-width", "px", [
+        { 2560: 800 },
+        { 1440: 600 },
+        { 1024: 600 },
+        { 768: 600 },
+        { 600: 450 },
+        { 425: 380 },
+        { 375: 350 },
+        { 320: 275 },
+    ])};
     cursor: pointer; 
-`,
-FullDraw = styled.img`
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 100;
-`
+`;
 
 export default {
     Wrapper,
@@ -50,5 +83,4 @@ export default {
     ImageGalleryWrapper,
     DrawWrapper,
     DrawImg,
-    FullDraw
 };

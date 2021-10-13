@@ -7,7 +7,7 @@ import Translate from "../../global/Translate";
 import {setLanguage, setTheme} from '../../reducer/action';
 import S from "./styled";
 
-export const SideBar: React.FC = () => {
+export const SideBar: React.FC<{isMobileSideBar: boolean}> = ({isMobileSideBar}) => {
 
   const {state, dispatch} = useContext(Context);
   const {language, theme} = state;
@@ -20,9 +20,9 @@ export const SideBar: React.FC = () => {
     iconColor: '#CBAC97',
     iconStyle: { height: 30, width: 30},
   };
-  
+
   return (
-    <S.WrapperMain>
+    <S.WrapperMain style={isMobileSideBar ? {left: '0'} : {left: ''}} className="side-bar">
       <S.Wrapper>
         <S.NavigationMenu>
           <S.Logo><Link to={`/`}>Logo</Link></S.Logo>

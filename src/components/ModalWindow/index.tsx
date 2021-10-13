@@ -7,7 +7,6 @@ import { Context } from "../../Context/";
 import { themes } from "../../global/themes";
 import Modal from 'react-modal';
 
-
 export const ModalWindow: React.FC = () => {
 
     const [modalIsOpen, setIsOpen] = useState(false);
@@ -43,7 +42,7 @@ export const ModalWindow: React.FC = () => {
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
             width: '500px',
-            backgroundColor: themes[theme].backgroundModalColor,
+            backgroundColor: themes[theme].colors.backgroundModalColor,
         },
         overlay: {
             backgroundColor: 'rgba(255, 255, 255, .9)',

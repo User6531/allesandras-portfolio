@@ -1,18 +1,44 @@
-export const themes: {
-    [key: string]: {
-        backgroundColor: string,
-        textColor: string,
-        backgroundModalColor: string
+interface Themes {
+    [key: string] : {
+        fonts: string[],
+        fontSizes: {
+            [key: string]: string
+        },
+        colors: {
+            [key: string]: string
+        }
     }
-} = {
+}
+
+export const themes:Themes = {
     light: {
-        backgroundColor: '#F9F6F1',
-        textColor: 'black',
-        backgroundModalColor: 'white'
+        fonts: ["Lato-Regular", "Roboto"],
+        fontSizes: {
+            xSmall: "12px",
+            small: "18px",
+            medium: "24px",
+            large: "30px",
+            xxLarge: "36px"
+        },
+        colors: {
+            backgroundColor: '#F9F6F1',
+            textColor: 'black',
+            backgroundModalColor: 'white'
+        },
     },
     dark: {
-        backgroundColor: "#333333",
-        textColor: 'white',
-        backgroundModalColor: 'black'
+        fonts: ["Lato-Regular", "Roboto"],
+        fontSizes: {
+            xSmall: "12px",
+            small: "18px",
+            medium: "24px",
+            large: "30px",
+            xxLarge: "36px"
+        },
+        colors: {
+            backgroundColor: "#333333",
+            textColor: 'white',
+            backgroundModalColor: 'black'
+        },
     }
 }
