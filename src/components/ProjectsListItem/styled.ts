@@ -22,14 +22,22 @@ const Title = styled.span`
         transition: ease .3s all;
 `,
     Wrapper = styled.div`
-        width: 33.333%;
         ${breakpoints("width", "%", [
-            { 2560: 25 },
+            { 2560: 33.333 },
             { 1440: 33.333 },
             { 1024: 50 },
             { 768: 50 },
             { 620: 100 },
             { 425: 100 }
+        ])};
+        ${breakpoints("height", "px", [
+            { 2560: 500 },
+            { 1800: 400 },
+            { 1440: 300 },
+            { 1024: 300 },
+            { 768: 300 },
+            { 620: 400 },
+            { 425: 300 }
         ])};
         height: 300px;
         position: relative;

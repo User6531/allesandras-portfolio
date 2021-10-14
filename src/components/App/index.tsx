@@ -52,7 +52,7 @@ const App: React.FC = () => {
 
   setTimeout(() => {
     dispatch(setOpenModal())
-  }, 300000)
+  }, 1000000000)
 
   return (
     <ThemeProvider theme={themes[theme]}>

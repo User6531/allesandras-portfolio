@@ -31,7 +31,7 @@ const S = {
         height: 100%;
         width: 150px;
         margin: 0 auto;
-        ${breakpoints("margin-top", "px", [
+        ${breakpoints("padding-top", "px", [
             { 2560: 0 },
             { 1440: 0 },
             { 1024: 0 },
@@ -43,13 +43,7 @@ const S = {
         align-items: center;
         flex-wrap: wrap;
         align-content: space-between;
-        ${breakpoints("align-content", "", [
-            { 2560: 'space-between' },
-            { 1440: 'space-between' },
-            { 1024: 'space-between' },
-            { 768: 'start' },
-            { 425: 'start' }
-        ])};
+       
     `,
     NavigationMenu: styled.nav`
         display: flex;

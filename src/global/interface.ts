@@ -12,9 +12,8 @@ export interface resRequest {
 }
 
 export type Action = 
-    | {type: typeof ERROR; payload: {error: boolean; errorMessage: string}}
-    | {type: typeof LOADING; payload: boolean}
-    | {type: typeof SET_LANGUAGE; payload: string}
-    | {type: typeof SET_THEME; payload: string}
+    | {type: typeof ERROR; payload: {error: boolean; errorMessage: string;};}
+    | {type: typeof LOADING; payload: boolean;}
+    | {type: typeof SET_LANGUAGE; payload: string;}
+    | {type: typeof SET_THEME; payload: string;}
     | {type: typeof OPEN_MODAL;}
-  

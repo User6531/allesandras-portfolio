@@ -29,13 +29,24 @@ DescriptionWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    ${breakpoints("flex-direction", "", [
+            { 2560: '' },
+            { 1440: '' },
+            { 1024: 'column-reverse' },
+            { 768: 'column-reverse' },
+            { 600: 'column-reverse' },
+            { 425: 'column-reverse' },
+            { 375: 'column-reverse' },
+            { 320: 'column-reverse' },
+    ])};
 `,
 ImageGalleryWrapper = styled.div`
-    margin: 0 auto; 
+    margin: 50px auto; 
     ${breakpoints("width", "px", [
             { 2560: 800 },
             { 1440: 600 },
             { 1024: 600 },
+            { 920: 500 },
             { 768: 600 },
             { 600: 425 },
             { 425: 380 },
@@ -47,7 +58,6 @@ Description = styled.p`
     font-size: ${(props: any) => props.theme.fontSizes.small};
     text-align: center;
     margin: 0 auto;
-    margin-top: 50px;
     ${breakpoints("max-width", "px", [
             { 2560: 400 },
             { 1440: 300 },
@@ -57,15 +67,20 @@ Description = styled.p`
 `,
 DrawWrapper = styled.div`
     margin: 0 auto;
+    margin-top: 50px;
+`,
+DrawTitle = styled.h1`
+    text-align: center;
+    margin-bottom: 50px;
 `,
 DrawImg = styled.img`
     display: block;
     margin: 0 auto;
-    margin-top: 50px;
     ${breakpoints("max-width", "px", [
         { 2560: 800 },
         { 1440: 600 },
         { 1024: 600 },
+        { 920: 500 },
         { 768: 600 },
         { 600: 450 },
         { 425: 380 },
@@ -83,4 +98,5 @@ export default {
     ImageGalleryWrapper,
     DrawWrapper,
     DrawImg,
+    DrawTitle,
 };

@@ -1,14 +1,7 @@
 const Translate: {
     [key: string]: {
-        Projects: string,
-        About: string,
-        Services: string,
-        Contacts: string,
-        AboutDescription: string
-        modalTitle: string,
-        modalDescription: string,
-        modalClose: string,
-    },
+        [key: string]: string,
+    }
 } = {
     en: {
         Projects: 'Projects',
@@ -19,6 +12,7 @@ const Translate: {
         modalTitle: 'modalTitle',
         modalDescription: 'um dolor sit amet, consectetur adipiscing elit. Cras tincidunt viverra velit. Pellentesque ornare magna eu arcu interdum, in feugiat libero lobortis. Vivamus sed ornare eros.',
         modalClose: 'close',
+        drawTitle: 'drawTitle',
     },
     ua: {
         Projects: 'Проекти',
@@ -29,6 +23,7 @@ const Translate: {
         modalTitle: 'модал текст',
         modalDescription: 'ено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное запо',
         modalClose: 'закрити',
+        drawTitle: 'назва планування',
     }
 };
 

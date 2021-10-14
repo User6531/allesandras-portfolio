@@ -6,6 +6,7 @@ import Translate from "../../global/Translate";
 import { Context } from "../../Context/";
 import { themes } from "../../global/themes";
 import Modal from 'react-modal';
+import * as S from './styled';
 
 export const ModalWindow: React.FC = () => {
 
@@ -58,10 +59,10 @@ export const ModalWindow: React.FC = () => {
             onRequestClose={closeModal}
             style={customStyles}
         >
-            <h1>{Translate[language].modalTitle}</h1>
-            <p>{Translate[language].modalDescription}</p>
-            <a href='https://t.me/kryvoruchko_andrey' target='_blank'>telega</a>
-            <button onClick={()=> closeModal()}>{Translate[language].modalClose}</button>
+            <S.Title>{Translate[language].modalTitle}</S.Title>
+            <S.Description>{Translate[language].modalDescription}</S.Description>
+            <S.TelegramButton href='https://t.me/kryvoruchko_andrey' target='_blank'>telega</S.TelegramButton>
+            <S.CloseButton onClick={()=> closeModal()}>{Translate[language].modalClose}</S.CloseButton>
         </Modal>
     )
 }
