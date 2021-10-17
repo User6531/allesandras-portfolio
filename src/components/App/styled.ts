@@ -26,12 +26,43 @@ const S = {
         z-index: 6;
         transition: ease .3s all;
     `,
-    BurgerMenuButton: styled.button`
-        width: 50px;
-        height: 50px;
-        background-color: black;
-        border-radius: 50%;
-        border: 1px solid black;
+    BurgerMenuButton: styled.button<{ isMobileSideBar?: boolean }>`
+        width: ${(props: any) => props.isMobileSideBar ? 0 : '30px'};
+        height: 2.5px;
+        background-color: ${(props: any) => props.theme.colors.buttonSideBarMobile};
+        border-radius: 8px;
+        position: relative;
+        transform-origin: left;
+        transition: ease .1s all;
+     
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+            width: 30px;
+            height: 3px;
+            background-color: ${(props: any) => props.theme.colors.buttonSideBarMobile};
+            border-radius: 8px;
+            transform-origin: left top;
+            transform: ${(props: any) => props.isMobileSideBar ? 'rotate(45deg)' : ''};
+            transition: ease .3s all;
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 30px;
+            height: 3px;
+            background-color: ${(props: any) => props.theme.colors.buttonSideBarMobile};
+            border-radius: 8px;
+            transform-origin: left bottom;
+            transform: ${(props: any) => props.isMobileSideBar ? 'rotate(-45deg)' : ''};
+            transition: ease .3s all;
+        }
+
     `,
     BurgerLogo: styled.h1`
         display: block;

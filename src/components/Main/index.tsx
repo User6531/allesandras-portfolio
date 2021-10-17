@@ -7,12 +7,12 @@ import { Context } from "../../Context";
 import { resRequest } from "../../global/interface";
 
 // pages
-import {ProjectsListPage} from '../pages/ProjectsListPage/';
-import {AboutPage} from '../pages/AboutPage/';
-import {ContactsPage} from '../pages/ContactsPage/';
-import {ProjectPage} from '../pages/ProjectPage/';
+import { ProjectsListPage } from '../pages/ProjectsListPage/';
+import { AboutPage } from '../pages/AboutPage/';
+import { ContactsPage } from '../pages/ContactsPage/';
+import { ProjectPage } from '../pages/ProjectPage/';
 import { ServicesPage } from '../pages/ServicesPage/';
-import { NotFound } from "../pages/NotFound";
+import { NotFound } from "../pages/NotFound"; 
 
 // styles
 import S from "./styled"
@@ -31,7 +31,6 @@ export const Main: React.FC = () => {
 
   return (
     <S.Wrapper>
-      
       <TransitionGroup className="transition-group">
         <CSSTransition
           key={location.key}
@@ -46,6 +45,7 @@ export const Main: React.FC = () => {
               <Route exact path="/about" component={AboutPage} />
               <Route exact path="/services" component={ServicesPage} />
               <Route exact path="/contacts" component={ContactsPage} />
+              <Route exact path="/404" component={NotFound} />
               <Route exact path="/:id" render={({match})=>{
                 const {id} = match.params;
                 return (

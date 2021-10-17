@@ -23,7 +23,8 @@ export const themes:Themes = {
         colors: {
             backgroundColor: '#F9F6F1',
             textColor: 'black',
-            backgroundModalColor: 'white'
+            backgroundModalColor: 'white',
+            buttonSideBarMobile: 'black'
         },
     },
     dark: {
@@ -38,7 +39,8 @@ export const themes:Themes = {
         colors: {
             backgroundColor: "#333333",
             textColor: 'white',
-            backgroundModalColor: 'black'
+            backgroundModalColor: 'black',
+            buttonSideBarMobile: 'white'
         },
     }
 }
