@@ -40,20 +40,7 @@ DescriptionWrapper = styled.div`
             { 320: 'column-reverse' },
     ])};
 `,
-ImageGalleryWrapper = styled.div`
-    margin: 50px auto; 
-    ${breakpoints("width", "px", [
-            { 2560: 800 },
-            { 1440: 600 },
-            { 1024: 600 },
-            { 920: 500 },
-            { 768: 600 },
-            { 600: 425 },
-            { 425: 380 },
-            { 375: 350 },
-            { 320: 275 },
-    ])};
-`,
+
 Description = styled.p`
     font-size: ${(props: any) => props.theme.fontSizes.small};
     text-align: center;
@@ -88,15 +75,14 @@ DrawImg = styled.img`
         { 320: 275 },
     ])};
     cursor: pointer; 
-`;
+`
 
 export default {
     Wrapper,
     DescriptionWrapper,
     Name,
     Description,
-    ImageGalleryWrapper,
     DrawWrapper,
     DrawImg,
-    DrawTitle,
+    DrawTitle
 };

@@ -4,11 +4,11 @@ import { useContext } from "react";
 import {Error} from '../../Error';
 import { Loader } from '../../Loader';
 import { ProjectsListItem } from '../../ProjectsListItem';
-import { resRequest } from "../../../global/interface";
+import { IProject } from "../../../global/interface";
 import S from "./styled"
 
 interface Props {
-  dbProjects: resRequest[];
+  dbProjects: IProject[];
 }
 
 export const ProjectsListPage: React.FC<Props> = ({dbProjects}) => {

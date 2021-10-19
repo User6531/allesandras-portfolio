@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
 
 
 export const NotFound: React.FC = ()=> {
     return (
-        <p>404</p>
+        <div>
+            <div>404</div>
+            <Link to={`/`}>go home</Link>
+        </div>
     )
 }

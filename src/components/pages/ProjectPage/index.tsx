@@ -1,44 +1,33 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
+import { useLocation } from "react-router-dom";
 
-import { resRequest } from "../../../global/interface";
+import { NotFound } from "../../pages/NotFound"; 
+import { CustomGallery } from '../../CustomGallery';
 import { Context } from "../../../Context";
+import { IProject } from "../../../global/interface";
 import Translate from "../../../global/Translate";
 import S from "./styled";
 
-interface IProps {
-  dbProjects: resRequest[];
-  id: string;
-}
-
-export const ProjectPage: React.FC = ({dbProjects, id}: IProps) => {
+export const ProjectPage: React.FC = () => {
   
-  const [currentProject, setCurrentProject] = useState<Partial<resRequest>>({});
   const {state} = useContext(Context);
   const {language} = state;
+  const location  = useLocation<IProject>();
 
-  useEffect(()=> {
-    dbProjects.forEach(project => project.id === id ? setCurrentProject(project) : null);
-  }, [])
+  if (!location.state) {return <NotFound />}
 
-    // const {projectName, description, img, drawings} = currentProject;
-    // return (
-    //   <S.Wrapper key={id}>
-    //     <S.Name>{projectName}</S.Name>
-    //     <S.DescriptionWrapper>
-    //       <S.ImageGalleryWrapper></S.ImageGalleryWrapper>
-    //       <S.Description>{description[state.language]}</S.Description>
-    //     </S.DescriptionWrapper>
-    //     <S.DrawWrapper>
-    //       <S.DrawTitle>{Translate[language].drawTitle}</S.DrawTitle>
-    //       {drawings.map((elem, key)=> {
-    //           return (
-    //             <S.DrawImg  src={elem} 
-    //                         key={key}
-    //             />
-    //           )
-    //       })}
-    //     </S.DrawWrapper>
-    //   </S.Wrapper>
-    // )
-
+  const {projectName, description, img, drawings} = location.state;
+  return (
+    <S.Wrapper>
+        <S.Name>{projectName}</S.Name>
+        <S.DescriptionWrapper>
+          <CustomGallery img={img}/>
+          <S.Description>{description[state.language]}</S.Description>
+        </S.DescriptionWrapper>
+        <S.DrawWrapper>
+          <S.DrawTitle>{Translate[language].drawTitle}</S.DrawTitle>
+          <S.DrawImg src={drawings} />
+        </S.DrawWrapper>
+    </S.Wrapper>
+  )
 }

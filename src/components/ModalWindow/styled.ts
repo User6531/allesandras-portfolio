@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { breakpoints } from '../../global/utils';
-
+// import { breakpoints } from '../../global/utils';
 
 const Title = styled.h1`
     text-align: center;

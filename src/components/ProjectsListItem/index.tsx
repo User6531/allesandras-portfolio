@@ -1,22 +1,21 @@
 import { Link } from "react-router-dom";
-import { resRequest } from "../../global/interface";
+import { useHistory } from "react-router-dom";
+
+import { IProject } from "../../global/interface";
 import S from "./styled"
 
 interface Props {
-  project: resRequest;
+  project: IProject;
 }
 
 export const ProjectsListItem: React.FC<Props> = ({project}) => {
   const {thumbnail, projectName, id} = project;
+  const history = useHistory();
 
   return (
-    <S.Wrapper>
-      <Link to={`/${id}`}>
-        <S.ThumbNail src={thumbnail} alt='' />
-          <S.Title>
-            {projectName}
-          </S.Title>
-      </Link>
+    <S.Wrapper onClick={() => history.push(`/${id}`, project)}>
+      <S.ThumbNail src={thumbnail} alt=''/>
+      <S.Title>{projectName}</S.Title>
     </S.Wrapper>
   );
 }

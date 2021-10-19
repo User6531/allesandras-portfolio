@@ -1,13 +1,11 @@
 import {LOADING, ERROR, SET_LANGUAGE, SET_THEME, OPEN_MODAL} from '../reducer/actionTypes';
-export interface resRequest {
+export interface IProject {
     id: string;
     projectName: string;
     description: any;
     thumbnail: string;
-    drawings: string[];
-    img: [
-      {thumbnail: string; original: string;}
-    ];
+    drawings: string;
+    img: {thumbnail: string; original: string;}[]
     data: []
 }
 
