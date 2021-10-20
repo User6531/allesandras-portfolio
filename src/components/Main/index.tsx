@@ -1,6 +1,5 @@
 import { Route, Switch, useLocation } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import {error} from '../../reducer/action';
 import { Context } from "../../Context";
@@ -30,23 +29,13 @@ export const Main: React.FC = () => {
 
   return (
     <S.Wrapper>
-      <TransitionGroup className="transition-group">
-        <CSSTransition
-          key={location.key}
-          timeout={{ enter: 300, exit: 300 }}
-          classNames="fade"
-        >
-          <section className="route-section">
-            <Switch location={location}>
-              <Route exact path="/"><ProjectsListPage dbProjects={dbProjects}/></Route>
-              <Route exact path="/about" component={AboutPage} />
-              <Route exact path="/services" component={ServicesPage} />
-              <Route exact path="/contacts" component={ContactsPage} />
-              <Route path="/:id" component={ProjectPage} />
-            </Switch>
-          </section>
-        </CSSTransition>
-      </TransitionGroup>
+      <Switch location={location}>
+        <Route exact path="/"><ProjectsListPage dbProjects={dbProjects}/></Route>
+        <Route exact path="/about" component={AboutPage} />
+        <Route exact path="/services" component={ServicesPage} />
+        <Route exact path="/contacts" component={ContactsPage} />
+        <Route path="/:id" component={ProjectPage} />
+      </Switch>
     </S.Wrapper>
   );
 }

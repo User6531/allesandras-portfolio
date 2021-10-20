@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { breakpoints } from '../../global/utils';
 
-const Title = styled.span`
+const 
+    Title = styled.span`
         position: absolute;
         left: 50%;
         top: 50%;
@@ -11,7 +12,6 @@ const Title = styled.span`
         opacity: 0;
         transition: ease .3s all;
 `,
-    
     ThumbNail = styled.img`
         width:100%;
         height:100%;
@@ -50,6 +50,7 @@ const Title = styled.span`
         :hover ${ThumbNail} {
             opacity: .2;
         }
+        cursor: pointer;
 `
 
 export default {

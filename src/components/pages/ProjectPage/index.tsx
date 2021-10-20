@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 import { NotFound } from "../../pages/NotFound"; 
@@ -14,6 +14,10 @@ export const ProjectPage: React.FC = () => {
   const {language} = state;
   const location  = useLocation<IProject>();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
   if (!location.state) {return <NotFound />}
 
   const {projectName, description, img, drawings} = location.state;
@@ -21,7 +25,9 @@ export const ProjectPage: React.FC = () => {
     <S.Wrapper>
         <S.Name>{projectName}</S.Name>
         <S.DescriptionWrapper>
-          <CustomGallery img={img}/>
+          <S.SliderWrapper>
+            <CustomGallery img={img}/>
+          </S.SliderWrapper>
           <S.Description>{description[state.language]}</S.Description>
         </S.DescriptionWrapper>
         <S.DrawWrapper>

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { breakpoints } from '../../global/utils';
 
 interface IProps {
     img?: {original: string; thumbnail: string;}[];
@@ -7,29 +6,7 @@ interface IProps {
 }
 
 const ImageGalleryWrapper = styled.div`
-    margin: 50px auto; 
-    ${breakpoints("width", "px", [
-            { 2560: 800 },
-            { 1440: 600 },
-            { 1024: 600 },
-            { 920: 500 },
-            { 768: 600 },
-            { 600: 425 },
-            { 425: 380 },
-            { 375: 350 },
-            { 320: 275 },
-    ])};
-    ${breakpoints("height", "px", [
-            { 2560: 800 },
-            { 1440: 600 },
-            { 1024: 600 },
-            { 920: 500 },
-            { 768: 600 },
-            { 600: 425 },
-            { 425: 380 },
-            { 375: 350 },
-            { 320: 275 },
-    ])};
+    width: 100%;
 `,
 OriginalWrapper = styled.div`
     height: 80%;
@@ -45,18 +22,19 @@ BodyOriginal = styled.div<IProps>`
     z-index: 0;
 `,
 ImgWrapper = styled.div`
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+    /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); */
     width: 100%;
 `,
 OriginalImg = styled.img`
     height: 100%;
+    width: 100%;
     object-fit: cover;
     object-position: center;
 `,
 ThumbNailsWrapper = styled.div`
     overflow-x: scroll;
     width: 100%;
-    height: 20%;
+    transition: ease .3s all;
 `,
 BodyThumbNails = styled.div<IProps>`
     width: ${(props: any) => props.img.length * 100 + 'px'};

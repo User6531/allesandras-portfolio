@@ -28,7 +28,7 @@ const S = {
     `,
     BurgerMenuButton: styled.button<{ isMobileSideBar?: boolean }>`
         width: ${(props: any) => props.isMobileSideBar ? 0 : '30px'};
-        height: 2.5px;
+        height: 3px;
         background-color: ${(props: any) => props.theme.colors.buttonSideBarMobile};
         border-radius: 8px;
         position: relative;
@@ -46,7 +46,7 @@ const S = {
             border-radius: 8px;
             transform-origin: left top;
             transform: ${(props: any) => props.isMobileSideBar ? 'rotate(45deg)' : ''};
-            transition: ease .3s all;
+            transition: ease .2s all;
         }
 
         &:after {
@@ -60,7 +60,7 @@ const S = {
             border-radius: 8px;
             transform-origin: left bottom;
             transform: ${(props: any) => props.isMobileSideBar ? 'rotate(-45deg)' : ''};
-            transition: ease .3s all;
+            transition: ease .2s all;
         }
 
     `,

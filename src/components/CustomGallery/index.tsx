@@ -24,41 +24,72 @@ export const CustomGallery: React.FC<IProps> = ({img}) => {
     
     const nextOriginalImg = () => {
         const sliderWrapperWidth = originalWrapper.current!.offsetWidth;
+        const containerScrollPosition = thumbNailsWrapper.current!.scrollLeft;
         if (offset == sliderWrapperWidth * (img.length - 1)) {
             setOffset(0)
             setSelectedThumbImg(0);
+            thumbNailsWrapper.current!.scrollTo({
+                top: 0,
+                left: 0,
+            })
         } else {
             setOffset((prev: number) => prev + sliderWrapperWidth)
             setSelectedThumbImg((prev: number) => prev + 1);
+            thumbNailsWrapper.current!.scrollTo({
+                top: 0,
+                left: containerScrollPosition + 100,
+            })
         }
     }
 
     const prevOriginalImg = () => {
         const sliderWrapperWidth = originalWrapper.current!.offsetWidth;
+        const containerScrollPosition = thumbNailsWrapper.current!.scrollLeft;
         if (offset == 0) {
             setOffset(sliderWrapperWidth * (img.length - 1))
             setSelectedThumbImg(img.length - 1);
+            thumbNailsWrapper.current!.scrollTo({
+                top: 0,
+                left: thumbNailsWrapper.current!.scrollWidth,
+            })
         } else {
             setOffset((prev: number) => prev - sliderWrapperWidth)
             setSelectedThumbImg((prev: number) => prev - 1);
+            thumbNailsWrapper.current!.scrollTo({
+                top: 0,
+                left: containerScrollPosition - 100,
+            })
         }
     }
 
-    const selectOriginalImg = (index: number) => {
+    const selectOriginalImg = (e: any, index: number) => {
+        enablePageScroll();
         const sliderWrapperWidth = originalWrapper.current!.offsetWidth;
+        const containerScrollPosition = thumbNailsWrapper.current!.scrollLeft;
+        const thumbPosition = e.target.parentNode.getBoundingClientRect().left - originalWrapper.current!.getBoundingClientRect().left;
         setOffset(sliderWrapperWidth * index);
         setSelectedThumbImg(index);
+        if (thumbPosition > (sliderWrapperWidth / 2)) {
+            thumbNailsWrapper.current!.scrollTo({
+                top: 0,
+                left: containerScrollPosition + 100,
+            })
+        } else if (thumbPosition < (sliderWrapperWidth / 2)) {
+            thumbNailsWrapper.current!.scrollTo({
+                top: 0,
+                left: containerScrollPosition - 100,
+            })
+        }
     }
 
     const onWheel = (e: any) => {
         const container = thumbNailsWrapper.current!;
-        const containerScrollPosition = container.scrollLeft
+        const containerScrollPosition = container.scrollLeft;
         container.scrollTo({
             top: 0,
             left: containerScrollPosition + e.deltaY,
         })
     }
-
 
     const preventDefault = (e: any) => {
         e = e || window.event
@@ -68,7 +99,7 @@ export const CustomGallery: React.FC<IProps> = ({img}) => {
         e.returnValue = false
     }
 
-    const disablePageScroll = (e: any) => {
+    const disablePageScroll = () => {
         document.addEventListener('wheel', preventDefault, {passive: false})
     }
 
@@ -103,7 +134,7 @@ export const CustomGallery: React.FC<IProps> = ({img}) => {
                         return (
                             <S.ThumbNailsItem   
                                     key={generateKey()} 
-                                    onClick={() => selectOriginalImg((index))}
+                                    onClick={(e) => selectOriginalImg(e, index)}
                                     selectedThumbImg={selectedThumbImg === index ? true : false} 
                             >
                                 <S.ThumbNailsImg src={item.thumbnail} />

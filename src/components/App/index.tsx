@@ -51,10 +51,6 @@ const App: React.FC = () => {
     toggleMobileSideBar(false)
   }, [location])
   
-  useEffect(()=>{
-    document.body.style.overflowY = 'scroll';
-  }, [])
-
   setTimeout(() => {
     dispatch(setOpenModal())
   }, 1000000000)

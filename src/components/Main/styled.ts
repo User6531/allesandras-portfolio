@@ -20,6 +20,7 @@ const S = {
         ])};
         font-size: 28px; /* Increased text to enable scrolling */
         width: 100%;
+        overflow-x: hidden;
        
         .fade-enter {
             opacity: 0.01;

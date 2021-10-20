@@ -40,7 +40,32 @@ DescriptionWrapper = styled.div`
             { 320: 'column-reverse' },
     ])};
 `,
-
+SliderWrapper = styled.div`
+    margin: 50px auto; 
+    ${breakpoints("width", "px", [
+            { 2560: 800 },
+            { 1440: 600 },
+            { 1024: 600 },
+            { 920: 500 },
+            { 768: 600 },
+            { 600: 425 },
+            { 425: 380 },
+            { 375: 350 },
+            { 320: 275 },
+    ])};
+    ${breakpoints("height", "px", [
+            { 2560: 800 },
+            { 1440: 600 },
+            { 1024: 600 },
+            { 920: 500 },
+            { 768: 600 },
+            { 600: 425 },
+            { 425: 380 },
+            { 375: 350 },
+            { 320: 275 },
+    ])};
+    overflow: hidden;
+`,
 Description = styled.p`
     font-size: ${(props: any) => props.theme.fontSizes.small};
     text-align: center;
@@ -84,5 +109,6 @@ export default {
     Description,
     DrawWrapper,
     DrawImg,
-    DrawTitle
+    DrawTitle,
+    SliderWrapper
 };
