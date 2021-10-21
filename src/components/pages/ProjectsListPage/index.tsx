@@ -3,7 +3,7 @@ import { useContext } from "react";
 
 import {Error} from '../../Error';
 import { Loader } from '../../Loader';
-import { ProjectsListItem } from '../../ProjectsListItem';
+import ProjectsListItem from '../../ProjectsListItem';
 import { IProject } from "../../../global/interface";
 import S from "./styled"
 
@@ -14,20 +14,24 @@ interface Props {
 export const ProjectsListPage: React.FC<Props> = ({dbProjects}) => {
 
   const {state} = useContext(Context);
-  if (state.error) {
+  const {error, loading} = state;
+  
+  if (error) {
     return <Error />
-  } else if (!dbProjects.length) {
+  } 
+  
+  if (loading) {
     return <Loader />
-  } else {
-    return (
-      <S.Wrapper>
-        {dbProjects.map(project=> {
-          const {id} = project;
-          return (
-            <ProjectsListItem project={project} key={id}/>
-          )
-        })}
-      </S.Wrapper>
-    )
   }
+  
+  return (
+    <S.Wrapper>
+      {dbProjects.map(project=> {
+        const {id} = project;
+        return (
+          <ProjectsListItem project={project} key={id}/>
+        )
+      })}
+    </S.Wrapper>
+  )
 }

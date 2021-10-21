@@ -1,7 +1,7 @@
 import { Route, Switch, useLocation } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 
-import {error} from '../../reducer/action';
+import { error, loading } from '../../reducer/action';
 import { Context } from "../../Context";
 import { IProject } from "../../global/interface";
 
@@ -23,14 +23,17 @@ export const Main: React.FC = () => {
   
   useEffect(()=>{
     service.getAllProjects()
-    .then((res: IProject) => setDbProject(res.data))
+    .then((res: IProject) => {
+      setDbProject(res.data);
+      dispatch(loading())
+    })
     .catch((res: string)=>dispatch(error(res)));
   }, []);
 
   return (
     <S.Wrapper>
       <Switch location={location}>
-        <Route exact path="/"><ProjectsListPage dbProjects={dbProjects}/></Route>
+        <Route exact path="/"><ProjectsListPage dbProjects={dbProjects} /></Route>
         <Route exact path="/about" component={AboutPage} />
         <Route exact path="/services" component={ServicesPage} />
         <Route exact path="/contacts" component={ContactsPage} />

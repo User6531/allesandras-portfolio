@@ -1,27 +1,51 @@
 import styled from 'styled-components';
 import { breakpoints } from '../../global/utils';
 
+interface IProps {
+    permission?: boolean;
+  }
+  
 const 
-    Title = styled.span`
+    Title = styled.span<IProps>`
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
         white-space: nowrap;
-        color: white;
+        color: ${props => props.permission? 'white' : 'black'};
         opacity: 0;
         transition: ease .3s all;
 `,
-    ThumbNail = styled.img`
+    ThumbNail = styled.img<IProps>`
         width:100%;
         height:100%;
         object-fit: cover;
         object-position: center;
         filter: grayscale(1);
-        opacity: 1;
+        filter: ${props => props.permission? 'grayscale(1)' : 'grayscale(1) blur(10px)'};
         transition: ease .3s all;
 `,
-    Wrapper = styled.div`
+    Lock = styled.img`
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+`,
+    HoverFill = styled.div<IProps>`
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #CBAC97;
+        opacity: 0;
+        transition: ease .3s all;
+    `,
+    Wrapper = styled.div<IProps>`
         ${breakpoints("width", "%", [
             { 2560: 33.333 },
             { 1440: 33.333 },
@@ -42,19 +66,22 @@ const
         height: 300px;
         position: relative;
         overflow: hidden;
-        background-color: #CBAC97;
-
+        cursor: ${props => props.permission? 'pointer' : 'default'};
         :hover ${Title} {
             opacity: 1;
         }
-        :hover ${ThumbNail} {
+        :hover ${HoverFill} {
+            opacity: .6;
+        }
+        :hover ${Lock} {
             opacity: .2;
         }
-        cursor: pointer;
 `
 
 export default {
     Wrapper,
     ThumbNail,
-    Title
+    Title,
+    Lock,
+    HoverFill
 };

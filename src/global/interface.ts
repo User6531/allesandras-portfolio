@@ -6,7 +6,8 @@ export interface IProject {
     thumbnail: string;
     drawings: string;
     img: {thumbnail: string; original: string;}[]
-    data: []
+    data: [];
+    permission: boolean;
 }
 
 export type Action = 

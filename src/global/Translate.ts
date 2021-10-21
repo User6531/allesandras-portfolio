@@ -13,6 +13,7 @@ const Translate: {
         modalDescription: 'um dolor sit amet, consectetur adipiscing elit. Cras tincidunt viverra velit. Pellentesque ornare magna eu arcu interdum, in feugiat libero lobortis. Vivamus sed ornare eros.',
         modalClose: 'close',
         drawTitle: 'drawTitle',
+        permission: 'in developing'
     },
     ua: {
         Projects: 'Проекти',
@@ -24,6 +25,7 @@ const Translate: {
         modalDescription: 'ено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное запо',
         modalClose: 'закрити',
         drawTitle: 'назва планування',
+        permission: 'в розробці'
     }
 };
 
