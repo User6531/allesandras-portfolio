@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 
 // component
 import { ModalWindow } from '../ModalWindow';
-import {SideBar} from '../SideBar/';
+import SideBar from '../SideBar/';
 import {Main} from '../Main/';
 
 //

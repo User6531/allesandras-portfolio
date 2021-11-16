@@ -8,7 +8,7 @@ interface Props {
 
 const S = {
     WrapperMain: styled.div`
-        background-color: ${(props: any) => props.theme.colors.backgroundColor};
+        background-color: ${({theme})=> theme.colors.backgroundColor};
         height: 100%;
         width: 230px;
         position: fixed;
@@ -62,65 +62,8 @@ const S = {
         justify-content: space-between;
         margin-bottom: 50px;
     `,
-    ButtonLanguage:styled.div`
-        width: 50px;
-        height: 20px;
-        border: 1px solid black;
-        border-radius: 10px;
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
-    `,
-    LanguageCircle: styled.div<Props>`
-        transition: ease .3s all;
-        position: absolute;
-        background-color: red;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        top: 50%;
-        left: ${props=> props.language === 'en' ? '2px' : '30px'};
-        transform: translate(0, -50%);
-        z-index:2;
-    `,
-    LanguageTitle: styled.div<Props>`
-        font-size: 15px;
-        text-transform: lowercase;
-        position: absolute;
-        top: 50%;
-        left: ${props=> props.language === 'en' ? '25px' : '5px'};
-        transform: translate(0, -50%);
-        z-index:1;
-    `,
-    ButtonTheme:styled.div`
-        width: 50px;
-        height: 20px;
-        border: 1px solid black;
-        border-radius: 10px;
-        position: relative;
-        cursor: pointer;
-    `,
-    ThemeCircle: styled.div<Props>`
-        transition: ease .3s all;
-        position: absolute;
-        background-color: red;
-        width: 15px;
-        height: 15px;
-        border-radius: 50%;
-        top: 50%;
-        left: ${props=> props.theme === 'light' ? '2px' : '30px'};
-        transform: translate(0, -50%);
-        z-index:2;
-    `,
-    ThemeTitle: styled.div<Props>`
-        font-size: 10px;
-        text-transform: lowercase;
-        position: absolute;
-        top: 50%;
-        left: ${props=> props.theme === 'light' ? '25px' : '5px'};
-        transform: translate(0, -50%);
-        z-index:1;  
-    `,
+    ButtonLanguage:styled.div``,
+    ButtonTheme:styled.div``,
     NavigationSocial: styled.nav`
         display: flex;
         justify-content: space-between;
